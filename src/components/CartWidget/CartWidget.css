@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cartWidget {
+    width: 20px;
+    margin-right: 5px;
+}
