@@ -1,0 +1,32 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    width: 25%;
+    margin: 10px;
+}
+
+.card img {
+    object-fit: contain;
+    max-height: 300px;
+    max-width: 300px;
+    padding: 10px 0 10px 0;
+}
+
+.card p {
+    background-color: beige;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+
+.title {
+    border-radius: 10px 10px 0px 0px;
+}
+
+.price {
+    border-radius: 0px 0px 10px 10px;
+}
