@@ -26,3 +26,11 @@ export const getItems = () => (
         }, 2000)
     })
 )
+
+export const getItem = () => (
+    new Promise( resolve => {
+        setTimeout( () => {
+            resolve( products[0] )
+        }, 2000)
+    })
+)
