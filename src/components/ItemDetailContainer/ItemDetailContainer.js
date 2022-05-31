@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
-import { getItem } from '../utils/asyncMockProducts';
+import { getItemById } from '../../utils/asyncMockProducts';
+import ItemCount from '../ItemCount/ItemCount';
+import { useParams } from 'react-router-dom';
 
-const ItemDetailContainer = () => {
-
+const ItemDetailContainer = ({setSelectedAmount}) => {
+    const { itemId } = useParams();
     const [item, setItem]= useState({});
+    const onAdd = amount => setSelectedAmount( amount )
 
     useEffect( () => {
-        getItem().then(res => setItem(res))
-    },[])
+        getItemById(itemId).then(res => setItem(res))
+    },[itemId])
 
-    return <ItemDetail item={item}/>
+    return(
+        <>
+            <ItemDetail {...item} />
+            <ItemCount stock={ 10 } initial={ 1 } onAdd={onAdd} />  
+        </>
+    ) 
 }
 
 export default ItemDetailContainer

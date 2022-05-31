@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import ItemList from '../ItemList/ItemList'
 import './ItemListContainer.css'
-import { getItems } from '../utils/asyncMockProducts';
+import { getItems, getItemByCategory } from '../../utils/asyncMockProducts';
+import { useParams } from 'react-router-dom';
 
-const ItemListContainer = ({ greeting }) => {
-
+const ItemListContainer = ({ greeting = 'Comida' }) => {
+    const { categoryId } = useParams();
     const [items, setItems]= useState([])
 
-    useEffect(()=>{
-        getItems().then(res => setItems(res))
-    },[])
+    useEffect( () => {
+        categoryId 
+            ? getItemByCategory( categoryId ).then( res => setItems(res) ) 
+            : getItems().then( res => setItems(res) )
+    },[categoryId])
 
     return (
        <>
