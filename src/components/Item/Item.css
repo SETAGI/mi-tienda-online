@@ -1,32 +1,41 @@
 .card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border: 1px solid gainsboro;
+    align-items: stretch;
+    justify-content: space-between;
+    border: 1px solid bisque;
     border-radius: 10px;
-    width: 25%;
+    width: 30%;
     margin: 10px;
 }
 
 .card img {
     object-fit: contain;
-    max-height: 300px;
-    max-width: 300px;
-    padding: 10px 0 10px 0;
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
 }
 
 .card p {
     background-color: beige;
-    width: 100%;
+    border-radius: 10px 10px 0px 0px;
     margin: 0;
     padding: 10px 0 10px 0;
     text-align: center;
 }
 
 .title {
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px 1s0px 0px 0px;
 }
 
-.price {
+.link-item {
+    text-align: center;
+    background-color: bisque;
+    text-decoration: none;
     border-radius: 0px 0px 10px 10px;
+    color: black;
+}
+
+.link-item:hover {
+    background-color: aquamarine;
 }

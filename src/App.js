@@ -1,21 +1,23 @@
 import NavBar from './components/NavBar/NavBar.js';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
-import ItemCount from './components/ItemCount/ItemCount.js';
-import { useState } from 'react';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.js';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
   
   const [selectedAmount, setSelectedAmount] = useState( 0 );
-  const onAdd = amount => setSelectedAmount( amount )
 
   return (
-    <>
+    <BrowserRouter>
       <NavBar selectedAmount={ selectedAmount }/>
-      <ItemListContainer greeting='Hola, bienvenido a mi tienda'/>
-      <ItemCount stock={ 10 } initial={ 1 } onAdd={onAdd} />
-      <ItemDetailContainer />
-    </>
+      <Routes>
+        <Route path='/' element={< ItemListContainer greeting='Todos los productos'/>} />
+        <Route path='/itemDetail/:itemId' element={<ItemDetailContainer setSelectedAmount={setSelectedAmount}/>} />
+        <Route path='/category/:categoryId' element={<ItemListContainer greeting='Productos seleccionados' />}/>
+        <Route path='/category/:categoryId/itemDetail/:itemId' element={<ItemDetailContainer setSelectedAmount={setSelectedAmount}/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
