@@ -15,10 +15,12 @@ const ItemListContainer = ({ greeting = 'Comida' }) => {
     },[categoryId])
 
     return (
-       <>
-            <h1 className='greeting'> {greeting} </h1>
-            <ItemList items={items}/>
-       </> 
+        items.length ? 
+            <>
+                <h1 className='greeting'> {greeting} </h1>
+                <ItemList items={items}/>
+            </> 
+            : <h1 className='loading'>Loading...</h1>
     )
 }
 
