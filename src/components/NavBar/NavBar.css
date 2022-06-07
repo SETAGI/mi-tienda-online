@@ -12,6 +12,10 @@ a {
     color: red;
 }
 
+.inactiveButton {
+    color: black;
+}
+
 .name-store {
     display: flex;
     flex-direction: row;

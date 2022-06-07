@@ -17,21 +17,21 @@ const NavBar = () => {
         <li>
           <NavLink 
             to={'/category/smartphones'} 
-            className={({isActive}) => isActive && 'activeButton'}
+            className={({isActive}) => (isActive ? 'activeButton': 'inactiveButton')}
           > Smartphones 
           </NavLink>
         </li>
         <li>
           <NavLink 
             to={'/category/accessories'} 
-            className={({isActive}) => isActive && 'activeButton'}
+            className={({isActive}) => (isActive ? 'activeButton': 'inactiveButton')}
           > Accesorios 
           </NavLink>
         </li>
         <li>
           <NavLink 
             to={'/category/notebooks'} 
-            className={({isActive}) => isActive && 'activeButton'}
+            className={({isActive}) => (isActive ? 'activeButton': 'inactiveButton')}
           > Notebooks 
           </NavLink>
         </li>
