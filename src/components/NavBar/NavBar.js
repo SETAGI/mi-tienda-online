@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import logo from '../../logo.svg';
 import './NavBar.css'
 import CartWidget from '../CartWidget/CartWidget';
 import { NavLink, Link } from 'react-router-dom';
+import CartContext from '../Context/CartContext';
 
 const NavBar = () => {
+  const { cart } = useContext(CartContext);
+
   return (
     <nav >
       <Link to={'/'} className='link'>
@@ -36,7 +39,9 @@ const NavBar = () => {
           </NavLink>
         </li>
       </ul>
-      <CartWidget />
+      {
+        cart.length>0 && <CartWidget />
+      }
     </nav>
   )
 }
