@@ -11,7 +11,7 @@ const products = [
     {
         id: 1,
         title: 'Galaxy S22 Ultra 5G',
-        description: 'Descripción de un Samsung Galaxy S22 Ultra ',
+        description: 'Descripción de un Samsung Galaxy S22 Ultra',
         price: 1150,
         category: 'smartphones',
         stock: 10,
@@ -37,7 +37,7 @@ const products = [
     },
     {
         id: 4,
-        title: 'MacBook Pro Chip M1 ',
+        title: 'MacBook Pro Chip M1',
         description: 'Descripción de un MacBook Pro Chip M1 CPU 8 Núcleos GPU 8 Núcleos 256GB SSD MYDA2LA/A 13 Pulgadas',
         price: 1800,
         category: 'notebooks',
