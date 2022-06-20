@@ -14,7 +14,6 @@ const CartList = () => {
             <button>
                 <Link to={'/'}> volver al inicio </Link>
             </button>
-            
         </div>
     )
 
@@ -22,9 +21,12 @@ const CartList = () => {
         <>
             <div className="cart-list-main-buttons">
                 <button onClick={clear}>Delete all items</button>
+                <button >
+                    <Link to={'/checkout'}> Generar orden </Link>
+                </button> 
                 <button>
                     <Link to={'/'}> seguir comprando </Link>
-                </button> 
+                </button>
             </div>
             <div className="cartList-container">
                 {
