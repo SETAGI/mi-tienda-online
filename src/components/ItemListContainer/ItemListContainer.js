@@ -2,29 +2,21 @@ import React, { useEffect, useState } from 'react'
 import ItemList from '../ItemList/ItemList'
 import './ItemListContainer.css'
 import { useParams } from 'react-router-dom';
-import { getDocs, collection, query, where } from 'firebase/firestore';
-import { db } from '../../services/firebase';
+import { getProducts } from '../../services/firebase/firestore';
 
 const ItemListContainer = ({ greeting = 'Comida' }) => {
     const { categoryId } = useParams();
     const [items, setItems]= useState([])
 
     useEffect( () => {
-
-        const colletctionSelected = categoryId 
-            ? query(collection(db,'products'), where('category','==', categoryId)) 
-            : collection(db, 'products');
-
-        getDocs(colletctionSelected)
-            .then( res => {
-                const products = res.docs.map( doc => {
-                   return {id: doc.id, ...doc.data()}
-                });
+        (async () => {
+            try{
+                const products = await getProducts(categoryId)
                 setItems(products);
-            }).catch( error => {
+            }catch (error) {
                 console.log(error)
-            })
-
+            }  
+        })()
     },[categoryId])
 
     return (
